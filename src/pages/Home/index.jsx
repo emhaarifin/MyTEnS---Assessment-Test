@@ -1,6 +1,7 @@
 import React, { useEffect, useState, lazy, Suspense } from 'react';
 import getRepositories from 'api/services/repositories';
 import CardLoading from 'components/atoms/Card/loading';
+const CenterViewport = lazy(() => import('components/molecules/CenterViewport'));
 const Card = lazy(() => import('components/atoms/Card'));
 const Home = () => {
   const [repositories, setRepositories] = useState([]);
@@ -45,9 +46,14 @@ const Home = () => {
           ))}
         </section>
       ) : error.error && !isLoading ? (
-        <p>{error.message}</p>
+        <CenterViewport>
+          <h4>{error.documentation_url}</h4>
+          <p>{error.message}</p>
+        </CenterViewport>
       ) : (
-        <p>no Data</p>
+        <CenterViewport>
+          <p>Don't have a repository</p>
+        </CenterViewport>
       )}
     </main>
   );
