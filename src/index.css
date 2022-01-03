@@ -44,6 +44,10 @@ code {
   overflow: hidden;
 }
 
+#content {
+  margin-top: 4rem;
+}
+
 /* The loading Class */
 .skeleton {
   position: relative;

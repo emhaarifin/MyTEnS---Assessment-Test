@@ -32,13 +32,13 @@ const Home = () => {
   return (
     <main className='container'>
       {isLoading ? (
-        <section className='repositories'>
-          {[...Array(18)].map((_, i) => (
+        <section className='repositories' id='content'>
+          {[...Array(6)].map((_, i) => (
             <CardLoading key={`loading${i}`} />
           ))}
         </section>
       ) : repositories.length && !isLoading ? (
-        <section className='repositories'>
+        <section className='repositories' id='content'>
           {repositories.map((repository) => (
             <Suspense key={`${repository.name} - ${repository.html_url}}`} fallback={<CardLoading />}>
               <Card key={repository.name} name={repository.name} url={repository.html_url}></Card>
